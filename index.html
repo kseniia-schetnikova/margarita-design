@@ -48,7 +48,12 @@ p{margin:0}
 /* Первый экран */
 .hero{padding:72px 0 88px}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
-.hero p.lead{font-size:19px;color:var(--muted);max-width:30em;margin:24px 0 36px}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:30em;margin:28px 0 36px}
+.hero h1.name{font-size:clamp(46px,6.4vw,84px);line-height:1.02;letter-spacing:-.005em}
+.hero .role{display:flex;align-items:center;gap:16px;margin-top:22px;font-size:clamp(17px,1.6vw,20px);color:var(--brass-dark);letter-spacing:.04em}
+.hero .role .dim{position:relative;width:72px;height:1px;background:var(--brass);flex:none}
+.hero .role .dim::before,.hero .role .dim::after{content:"";position:absolute;top:-5px;width:1px;height:11px;background:var(--brass)}
+.hero .role .dim::before{left:0}.hero .role .dim::after{right:0}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero .where{margin-top:28px;font-size:15px;color:var(--muted)}
 .plan{margin:0;background:var(--paper);border:1px solid var(--line);padding:28px}
@@ -92,6 +97,11 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 /* Обо мне */
 .about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
 .about .wrap{align-items:center}
+.about .portrait{margin-bottom:34px}
+.facts{display:flex;flex-wrap:wrap;gap:20px 40px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.facts div{min-width:120px}
+.facts b{display:block;font:400 34px/1 "Tenor Sans",serif;color:var(--graphite)}
+.facts span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
 .about p{margin-top:20px;max-width:34em}
 .portrait{position:relative;aspect-ratio:4/5;max-width:380px;width:100%;margin:0 auto}
 .portrait .arch{position:absolute;inset:14% 6% 0 6%;background:#E1DDD3;border-radius:999px 999px 0 0;transform-origin:50% 100%}
@@ -99,7 +109,9 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 .portrait .outline path{fill:none;stroke:var(--brass);stroke-width:.3}
 .portrait img{position:absolute;left:0;bottom:0;width:100%;height:auto}
 .portrait::after{content:"";position:absolute;left:-4%;right:-4%;bottom:0;border-bottom:1px solid var(--brass)}
-.portrait figcaption{position:absolute;right:-30px;top:30%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:13px;letter-spacing:.08em;color:var(--sage)}
+.portrait .dimline{position:absolute;left:6%;right:6%;bottom:-34px;height:11px;border-left:1px solid var(--brass);border-right:1px solid var(--brass);display:flex;align-items:center;justify-content:center}
+.portrait .dimline::before{content:"";position:absolute;left:0;right:0;top:5px;border-top:1px solid var(--brass)}
+.portrait .dimline span{position:relative;background:var(--limestone);padding:0 10px;font-size:13px;letter-spacing:.06em;color:var(--brass-dark)}
 
 /* Появление при прокрутке */
 .js .rv{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -169,7 +181,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .plan{padding:14px}
   .top .wrap{height:60px}
   .portrait{max-width:300px}
-  .portrait figcaption{display:none}
   .portrait::after{left:0;right:0}
   .brand{font-size:16px;white-space:nowrap}
   .top .btn{padding:0 12px;min-height:40px;font-size:13px;white-space:nowrap}
@@ -192,7 +203,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="hero" style="border-top:0">
   <div class="wrap">
     <div>
-      <h1>Интерьер, который продуман до сантиметра</h1>
+      <h1 class="name">Маргарита<br>Румянцева</h1>
+      <p class="role"><span class="dim" aria-hidden="true"></span>дизайн интерьера</p>
       <p class="lead">Дизайн-проекты квартир и домов: от планировки до рабочих чертежей. Вы заранее видите, как будет выглядеть каждая комната, а строители точно знают, что делать.</p>
       <div class="actions">
         <a class="btn" href="#contact">Обсудить проект</a>
@@ -262,27 +274,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </article>
 
-    <article class="project">
-      <div class="frame"><img src="img/imp-1.webp" alt="Пентхаус: гостиная с диваном и камином у стены" loading="lazy" width="720" height="900"></div>
-      <div class="frame"><img src="img/imp-2.webp" alt="Пентхаус: круглый обеденный стол у панорамного окна" loading="lazy" width="720" height="900"></div>
-      <div class="frame"><img src="img/imp-3.webp" alt="Пентхаус: кухня с мраморным островом" loading="lazy" width="720" height="900"></div>
-      <div class="cap">
-        <div><h3>Двухуровневый пентхаус в ЖК «Империал»</h3><p class="meta">Архангельск, 25-й этаж</p></div>
-        <p>Внизу — светлое открытое пространство для гостей с панорамным видом на город и тёплыми натуральными материалами. Наверху — личные зоны: комната отдыха, кабинет со стеклянным ограждением, спальня и спортзал.</p>
-      </div>
-    </article>
 
-    <article class="project">
-      <div class="frame"><img src="img/sky-1.webp" alt="Гостиная с синей стеной, серым диваном и жёлтым креслом" loading="lazy" width="720" height="900"></div>
-      <div class="frame"><img src="img/sky-2.webp" alt="Гостиная: кресло и журнальные столики у окна" loading="lazy" width="720" height="900"></div>
-      <div class="frame"><img src="img/sky-3.webp" alt="Гостиная: эркер с панорамными окнами" loading="lazy" width="720" height="900"></div>
-      <div class="cap">
-        <div><h3>Квартира 38 м² в ЖК «Седьмое небо»</h3><p class="meta">Архангельск, центр</p></div>
-        <p>Небольшая однушка неправильной формы со скошенной стеной. Диван работает и как спальное место, кухня разделена на рабочую зону и колонны под технику. Настроение — интерьеры ГДР 70–80-х годов.</p>
-      </div>
-    </article>
 
-    <p class="credit">Часть проектов выполнена в команде CHEMERIS STUDIO.</p>
   </div>
 </section>
 
@@ -293,10 +286,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>Можно заказать полный проект или отдельную часть — например, только планировку.</p>
     </div>
     <ul class="services">
-      <li><h3>Планировочное решение</h3><p>Расстановка мебели, зонирование, несколько вариантов на выбор.</p><span class="price">от <span class="slot">{{цена}}</span> ₽/м²</span></li>
-      <li><h3>Полный дизайн-проект</h3><p>Планировка, 3D-визуализации всех помещений, рабочие чертежи и спецификации материалов. Альбом проекта — в PDF и на печати.</p><span class="price">от <span class="slot">{{цена}}</span> ₽/м²</span></li>
-      <li><h3>Авторский надзор</h3><p>Консультирую ваших строителей на каждом этапе, слежу, чтобы ремонт шёл точно по проекту. В других городах — по фото и видео с объекта.</p><span class="price">от <span class="slot">{{цена}}</span> ₽/мес</span></li>
-      <li><h3>Консультация</h3><p>Разбор вашей квартиры и идей за одну встречу — лично или по видеосвязи.</p><span class="price">от <span class="slot">{{цена}}</span> ₽</span></li>
+      <li><h3>Планировочное решение</h3><p>Расстановка мебели, зонирование, несколько вариантов на выбор.</p><span class="price">от 500 ₽/м²</span></li>
+      <li><h3>Полный дизайн-проект</h3><p>Планировка, 3D-визуализации всех помещений, рабочие чертежи и спецификации материалов. Альбом проекта — в PDF и на печати.</p><span class="price">от 3 300 ₽/м²</span></li>
+      <li><h3>Авторский надзор</h3><p>Консультирую ваших строителей на каждом этапе, слежу, чтобы ремонт шёл точно по проекту. В других городах — по фото и видео с объекта.</p><span class="price">от 20 000 ₽/мес</span></li>
+      <li><h3>Консультация</h3><p>Разбор вашей квартиры и идей за одну встречу — лично или по видеосвязи.</p><span class="price">5 000 ₽</span></li>
     </ul>
   </div>
 </section>
@@ -305,7 +298,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <div class="head">
       <h2>Как я работаю</h2>
-      <p>Обычный проект занимает <span class="slot">{{срок}}</span>. Оплата по этапам: вы платите перед каждым следующим шагом.</p>
+      <p>Обычный проект занимает около трёх месяцев. Оплата делится на три части.</p>
     </div>
     <ol class="steps">
       <li><h3>Знакомство и обмеры</h3><p>Обсуждаем, как вы живёте и чего хотите. Обмеры делаю сама или по вашим замерам, если вы в другом городе.</p></li>
@@ -324,24 +317,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="arch"></div>
       <svg class="outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M2 100 V50 A48 48 0 0 1 98 50 V100"/></svg>
       <img src="img/margarita.png" alt="Маргарита Румянцева, дизайнер интерьеров" width="656" height="820" loading="lazy">
-      <figcaption>Маргарита Румянцева</figcaption>
+      <figcaption class="dimline"><span>7 лет в профессии</span></figcaption>
     </figure>
     <div class="rv">
       <h2>Обо мне</h2>
-      <p><span class="slot">{{2–3 предложения о себе: опыт, образование, подход}}</span></p>
-      <p><span class="slot">{{сколько проектов сделано / лет в профессии}}</span></p>
+      <p>Я дизайнер интерьеров, окончила Высшую школу дизайна в Москве. Больше семи лет проектирую квартиры и дома — от небольших студий до детских, спален и кухонь, где важен каждый сантиметр.</p>
+      <p>Работаю в Архангельске, Москве, Санкт-Петербурге и онлайн с любыми городами.</p>
+      <div class="facts"><div><b>7+</b><span>лет в профессии</span></div><div><b>50+</b><span>проектов</span></div><div><b>ВШД</b><span>Высшая школа дизайна, Москва</span></div></div>
     </div>
   </div>
 </section>
 
-<section id="reviews">
-  <div class="wrap">
-    <div class="head"><h2>Отзывы</h2></div>
-    <div class="reviews">
-      <blockquote><p>В школьной столовой завершён дизайнерский ремонт, и теперь она выглядит просто великолепно! Мы выражаем огромную благодарность нашей выпускнице, Маргарите Румянцевой, за её талант, помощь и за то, что она подарила нам такой замечательный проект.</p><cite>Школа № 22, Архангельск — о дизайне школьной столовой</cite></blockquote>
-    </div>
-  </div>
-</section>
 
 <section id="contact" class="contact">
   <div class="wrap">
@@ -350,9 +336,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>Напишите площадь, город и что хотите изменить. Работаю с любыми городами. Отвечу в течение дня и предложу, с чего начать.</p>
     </div>
     <div class="links">
-      <a class="btn ghost" href="#"><span>Telegram</span><span class="slot">{{@ник}}</span></a>
-      <a class="btn ghost" href="#"><span>WhatsApp</span><span class="slot">{{номер}}</span></a>
-      <a class="btn ghost" href="#"><span>Позвонить</span><span class="slot">{{телефон}}</span></a>
+      <a class="btn ghost" href="https://t.me/rumyantseva_rita" target="_blank" rel="noopener"><span>Telegram</span><span>@rumyantseva_rita</span></a>
+            <a class="btn ghost" href="tel:+79539337633"><span>Позвонить</span><span>+7 953 933-76-33</span></a>
     </div>
   </div>
 </section>
